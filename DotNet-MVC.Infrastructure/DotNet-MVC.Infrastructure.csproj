@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>DotNet_MVC.Infrastructure</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DotNet-MVC.Application\DotNet-MVC.Application.csproj" />
+      <ProjectReference Include="..\DotNet-MVC.Domain\DotNet-MVC.Domain.csproj" />
+    </ItemGroup>
+
+</Project>
