@@ -15,5 +15,6 @@ namespace DotNet_MVC.Application.Data
         }
 
         public DbSet<Caterogy> Caterogy { get; set; }
+        public DbSet<CoverType> CoverTypes { get; set; }
     }
 }
