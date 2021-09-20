@@ -14,7 +14,10 @@ namespace DotNet_MVC.Application.Data
         {
         }
 
-        public DbSet<Caterogy> Caterogy { get; set; }
-        public DbSet<CoverType> CoverTypes { get; set; }
+        public DbSet<Category> Category { get; set; }
+        public DbSet<CoverType> CoverType { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
+        public DbSet<Company> Company { get; set; }
     }
 }

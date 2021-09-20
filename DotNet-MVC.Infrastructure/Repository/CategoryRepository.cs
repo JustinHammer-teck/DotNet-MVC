@@ -5,23 +5,23 @@ using DotNet_MVC.Domain.Intities;
 
 namespace DotNet_MVC.Infrastructure.Repository
 {
-    public class CaterogyRepository : Repository<Caterogy>, ICaterogyRepository
+    public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
         private readonly ApplicationDbContext _db;
 
 
-        public CaterogyRepository(ApplicationDbContext db) : base(db)
+        public CategoryRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
         }
 
-        public void Update(Caterogy caterogy)
+        public void Update(Category category)
         {
-            var obj = _db.Caterogy.FirstOrDefault(s => s.Id == caterogy.Id);
+            var obj = _db.Category.FirstOrDefault(s => s.Id == category.Id);
 
             if (obj != null)
             {
-                obj.Name = caterogy.Name;
+                obj.Name = category.Name;
 
                 _db.SaveChanges();
             }

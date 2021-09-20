@@ -21,7 +21,7 @@ namespace DotNet_MVC.Application.Migrations
                 .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("DotNet_MVC.Domain.Intities.Caterogy", b =>
+            modelBuilder.Entity("DotNet_MVC.Domain.Intities.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -35,7 +35,7 @@ namespace DotNet_MVC.Application.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Caterogy");
+                    b.ToTable("Category");
                 });
 
             modelBuilder.Entity("DotNet_MVC.Domain.Intities.CoverType", b =>
@@ -52,7 +52,7 @@ namespace DotNet_MVC.Application.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CoverTypes");
+                    b.ToTable("CoverType");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

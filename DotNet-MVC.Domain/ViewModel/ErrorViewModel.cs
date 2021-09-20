@@ -1,6 +1,4 @@
-using System;
-
-namespace DotNet_MVC.Domain.Intities
+namespace DotNet_MVC.Domain.ViewModel
 {
     public class ErrorViewModel
     {

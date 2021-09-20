@@ -7,7 +7,7 @@ namespace DotNet_MVC.Application.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "CoverTypes",
+                name: "CoverType",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -23,7 +23,7 @@ namespace DotNet_MVC.Application.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CoverTypes");
+                name: "CoverType");
         }
     }
 }

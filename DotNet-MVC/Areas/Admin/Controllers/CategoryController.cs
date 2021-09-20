@@ -23,48 +23,48 @@ namespace DotNet_MVC.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Upsert(int? id)
         {
-            Caterogy caterogy = new Caterogy();
+            Category category = new Category();
             if (id == null)
             {
-                return View(caterogy);
+                return View(category);
             }
 
-            caterogy = _UoW.Caterogy.Get(id.GetValueOrDefault());
+            category = _UoW.Category.Get(id.GetValueOrDefault());
 
-            if (caterogy == null)
+            if (category == null)
             {
                 return NotFound();
             }
 
-            return View(caterogy);
+            return View(category);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Upsert(Caterogy caterogy)
+        public IActionResult Upsert(Category category)
         {
             if (ModelState.IsValid)
             {
-                if (caterogy.Id == 0)
+                if (category.Id == 0)
                 {
-                    _UoW.Caterogy.Add(caterogy);
+                    _UoW.Category.Add(category);
                 }
                 else
                 {
-                    _UoW.Caterogy.Update(caterogy);
+                    _UoW.Category.Update(category);
                 }
 
                 _UoW.Save();
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(caterogy);
+            return View(category);
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            var categories = _UoW.Caterogy.GetAll();
+            var categories = _UoW.Category.GetAll();
 
             return Json(new {data = categories});
         }
@@ -72,13 +72,13 @@ namespace DotNet_MVC.Areas.Admin.Controllers
         [HttpDelete]
         public IActionResult Delete(int id)
         {
-            var obj = _UoW.Caterogy.Get(id);
+            var obj = _UoW.Category.Get(id);
             if (obj == null)
             {
                 return Json(new {success = false, message = "Something Wrong Happended"});
             }
 
-            _UoW.Caterogy.Remove(obj);
+            _UoW.Category.Remove(obj);
             _UoW.Save();
             return Json(new {success = true, message = "Successful"});
         }

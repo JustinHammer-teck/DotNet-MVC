@@ -47,7 +47,7 @@ namespace DotNet_MVC.Application.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Caterogy",
+                name: "Category",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -223,7 +223,7 @@ namespace DotNet_MVC.Application.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Caterogy");
+                name: "Category");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
