@@ -1,4 +1,4 @@
-﻿namespace DotNet_MVC.Infrastructure
+﻿namespace DotNet_MVC.Domain.Static
 {
     public static class StaticDetail
     {

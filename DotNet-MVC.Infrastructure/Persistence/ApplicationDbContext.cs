@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using DotNet_MVC.Domain.Intities;
+﻿using DotNet_MVC.Domain.Intities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace DotNet_MVC.Application.Data
+namespace DotNet_MVC.Infrastructure.Persistence
 {
     public class ApplicationDbContext : IdentityDbContext
     {

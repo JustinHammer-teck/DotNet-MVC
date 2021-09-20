@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using DotNet_MVC.Application.Common.Repository;
-using DotNet_MVC.Application.Data;
+using DotNet_MVC.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace DotNet_MVC.Infrastructure.Repository

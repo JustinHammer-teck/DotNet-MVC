@@ -1,7 +1,7 @@
 ﻿using DotNet_MVC.Application.Common;
 using DotNet_MVC.Application.Common.Repository;
-using DotNet_MVC.Application.Data;
 using DotNet_MVC.Domain.Intities;
+using DotNet_MVC.Infrastructure.Persistence;
 using DotNet_MVC.Infrastructure.Repository;
 
 namespace DotNet_MVC.Infrastructure

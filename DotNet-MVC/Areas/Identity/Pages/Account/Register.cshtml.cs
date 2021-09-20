@@ -8,7 +8,9 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using DotNet_MVC.Application.Common;
+using DotNet_MVC.Domain;
 using DotNet_MVC.Domain.Intities;
+using DotNet_MVC.Domain.Static;
 using DotNet_MVC.Infrastructure;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
@@ -97,13 +99,14 @@ namespace DotNet_MVC.Areas.Identity.Pages.Account
                     Text = i.Name,
                     Value = i.Id.ToString()
                 }),
-                RoleList = _roleManager.Roles.Where(u=>u.Name != StaticDetail.Role_Individual_User).Select(i => new SelectListItem
-                {
-                    Text = i.Name,
-                    Value = i.Id.ToString()
-                })
+                RoleList = _roleManager.Roles.Where(u => u.Name != StaticDetail.Role_Individual_User).Select(i =>
+                    new SelectListItem
+                    {
+                        Text = i.Name,
+                        Value = i.Id.ToString()
+                    })
             };
-            
+
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
@@ -145,12 +148,22 @@ namespace DotNet_MVC.Areas.Identity.Pages.Account
                         }
                     }
 
-                    await _userManager.AddToRoleAsync(user, StaticDetail.Role_Admin);
-
-                    if (!await _roleManager.RoleExistsAsync(StaticDetail.Role_Admin))
+                    if (user.Role == null)
                     {
-                        await _roleManager.CreateAsync(new IdentityRole(StaticDetail.Role_Admin));
+                        await _userManager.AddToRoleAsync(user, StaticDetail.Role_Individual_User);
                     }
+
+                    if (user.Role != null)
+                    {
+                        await _userManager.AddToRoleAsync(user, user.Role);
+                    }
+
+                    if (user.Role != null && user.CompanyId > 0)
+                    {
+                        await _userManager.AddToRoleAsync(user, StaticDetail.Role_Employee);
+                    }
+
+
                     // var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     // code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     // var callbackUrl = Url.Page(
@@ -166,11 +179,9 @@ namespace DotNet_MVC.Areas.Identity.Pages.Account
                     {
                         return RedirectToPage("RegisterConfirmation", new {email = Input.Email, returnUrl = returnUrl});
                     }
-                    else
-                    {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
-                    }
+
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return LocalRedirect(returnUrl);
                 }
 
                 foreach (var error in result.Errors)

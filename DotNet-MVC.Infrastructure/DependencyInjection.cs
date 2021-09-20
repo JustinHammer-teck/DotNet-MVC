@@ -1,19 +1,24 @@
 ﻿using DotNet_MVC.Application.Common;
-using DotNet_MVC.Infrastructure;
 using DotNet_MVC.Infrastructure.Services;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DotNet_MVC.Services.Installers
+namespace DotNet_MVC.Infrastructure
 {
-    public class ApplicationInstaller : IInstaller
+    public static class DependencyInjection
     {
-        public void InstallServices(IConfiguration configuration, IServiceCollection services)
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services,
+            IConfiguration configuration)
         {
+            
+            
+            
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddSingleton<IEmailSender, EmailSender>();
+
+            return services;
         }
     }
 }

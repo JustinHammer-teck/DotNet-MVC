@@ -8,6 +8,5 @@ namespace DotNet_MVC.Services.Installers
         void InstallServices(IConfiguration configuration, 
             IServiceCollection services);
         
-
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using DotNet_MVC.Application.Common.Repository;
-using DotNet_MVC.Application.Data;
 using DotNet_MVC.Domain.Intities;
+using DotNet_MVC.Infrastructure.Persistence;
 
 namespace DotNet_MVC.Infrastructure.Repository
 {

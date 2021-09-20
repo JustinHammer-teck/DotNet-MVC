@@ -1,4 +1,4 @@
-﻿using DotNet_MVC.Application.Data;
+﻿using DotNet_MVC.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

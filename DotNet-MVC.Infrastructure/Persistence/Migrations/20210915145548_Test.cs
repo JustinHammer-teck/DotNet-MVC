@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DotNet_MVC.Application.Migrations
+namespace DotNet_MVC.Infrastructure.Persistence.Migrations
 {
     public partial class Test : Migration
     {
