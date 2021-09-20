@@ -18,4 +18,8 @@
     <ItemGroup>
         <ProjectReference Include="..\DotNet-MVC.Domain\DotNet-MVC.Domain.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Common\Services" />
+    </ItemGroup>
 </Project>

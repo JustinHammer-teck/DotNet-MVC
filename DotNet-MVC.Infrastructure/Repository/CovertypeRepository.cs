@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using DotNet_MVC.Application.Common.Repository;
-using DotNet_MVC.Application.Data;
 using DotNet_MVC.Domain.Intities;
+using DotNet_MVC.Infrastructure.Persistence;
 
 namespace DotNet_MVC.Infrastructure.Repository
 {
@@ -16,7 +16,7 @@ namespace DotNet_MVC.Infrastructure.Repository
 
         public void Update(CoverType coverType)
         {
-            var obj = _db.CoverTypes.FirstOrDefault(s => s.Id == coverType.Id);
+            var obj = _db.CoverType.FirstOrDefault(s => s.Id == coverType.Id);
 
             if (obj != null)
             {

@@ -26,4 +26,8 @@
         <_ContentIncludedByDefault Remove="wwwroot\lib\jquery-datepicker\dist\external\jquery\jquery.js" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="wwwroot\uploads\images\products" />
+    </ItemGroup>
+
 </Project>

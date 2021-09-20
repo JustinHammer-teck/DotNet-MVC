@@ -4,7 +4,7 @@ using System.Data.Common;
 using System.Linq;
 using Dapper;
 using DotNet_MVC.Application.Common.Repository;
-using DotNet_MVC.Application.Data;
+using DotNet_MVC.Infrastructure.Persistence;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
