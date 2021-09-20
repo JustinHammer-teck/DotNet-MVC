@@ -11,9 +11,13 @@ namespace DotNet_MVC.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services,
             IConfiguration configuration)
         {
-            
-            
-            
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = $"/Identity/Account/Login";
+                options.LogoutPath = $"/Identity/Account/Logout";
+                options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+            });
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddSingleton<IEmailSender, EmailSender>();

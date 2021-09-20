@@ -2,7 +2,7 @@
 
 @{
     Layout = "_Layout";
-    var title = "Create Category";
+    var title = "Create Company";
 }
 
 <form action="" method="post">
@@ -10,10 +10,10 @@
         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
         @if (Model.Id != null)
         {
-            title = "Edit Category";
+            title = "Edit Company";
         }
         <div class="col-12 border-bottom">
-            <h2 class="text-primary">TITLE</h2>
+            <h2 class="text-primary">@title</h2>
         </div>
         <div class="col-8 pt-4">
             <div class="form-group row">

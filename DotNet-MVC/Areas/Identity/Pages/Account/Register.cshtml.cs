@@ -148,16 +148,18 @@ namespace DotNet_MVC.Areas.Identity.Pages.Account
                         }
                     }
 
+                    // await _userManager.AddToRoleAsync(user, StaticDetail.Role_Admin);
+
                     if (user.Role == null)
                     {
                         await _userManager.AddToRoleAsync(user, StaticDetail.Role_Individual_User);
                     }
-
+                    
                     if (user.Role != null)
                     {
                         await _userManager.AddToRoleAsync(user, user.Role);
                     }
-
+                    
                     if (user.Role != null && user.CompanyId > 0)
                     {
                         await _userManager.AddToRoleAsync(user, StaticDetail.Role_Employee);

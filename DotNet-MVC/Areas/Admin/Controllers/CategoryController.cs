@@ -1,10 +1,13 @@
 ﻿using DotNet_MVC.Application.Common;
 using DotNet_MVC.Domain.Intities;
+using DotNet_MVC.Domain.Static;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DotNet_MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = StaticDetail.Role_Admin)]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _UoW;

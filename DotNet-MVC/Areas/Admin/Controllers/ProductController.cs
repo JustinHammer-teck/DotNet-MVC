@@ -3,8 +3,10 @@ using System.IO;
 using System.Linq;
 using DotNet_MVC.Application.Common;
 using DotNet_MVC.Domain.Intities;
+using DotNet_MVC.Domain.Static;
 using DotNet_MVC.Domain.ViewModel;
 using Humanizer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -13,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 namespace DotNet_MVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = StaticDetail.Role_Admin + "," + StaticDetail.Role_Employee)]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _UoW;
@@ -128,11 +131,12 @@ namespace DotNet_MVC.Areas.Admin.Controllers
                     Text = x.Name,
                     Value = x.Id.ToString()
                 });
-                if (productVM.Product.Id != 0 )
+                if (productVM.Product.Id != 0)
                 {
                     productVM.Product = _UoW.Product.Get(productVM.Product.Id);
                 }
             }
+
             return View(productVM);
         }
 
